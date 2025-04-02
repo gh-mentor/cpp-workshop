@@ -27,13 +27,6 @@ private:
     T *_data = nullptr;
 
 public:
-    // Getter for _data
-    T* GetData() const { return _data; }
-
-    // Getter for _refCounter
-    RefCounter* GetRefCounter() const { return _refCounter; }
-
-public:
     // Constructor (bug)
     SmartPtr(T *data) : _data(data)
     {
@@ -96,36 +89,20 @@ public:
 
 void UseSmartPtr()
 {
+    assert(false, "UseSmartPtr() is not implemented yet");
+
     // Create a SmartPtr instance
-    SmartPtr<int> sp1(new int(42));
-    assert(*sp1.GetData() == 42); // Assert that sp1 holds the correct value
 
-    // Copy constructor
-    SmartPtr<int> sp2 = sp1;
-    assert(*sp2.GetData() == 42); // Assert that sp2 holds the same value as sp1
-    assert(sp1.GetRefCounter() == sp2.GetRefCounter()); // Assert that sp1 and sp2 share the same reference counter
-    assert(sp1.GetRefCounter()->refCount == 2); // Assert that the reference count is incremented
+    // Make a copy of the SmartPtr instance
 
-    // Assignment operator
-    SmartPtr<int> sp3(new int(100));
-    assert(*sp3.GetData() == 100); // Assert that sp3 holds the correct value initially
-    sp3 = sp1;
-    assert(*sp3.GetData() == 42); // Assert that sp3 now holds the same value as sp1
-    assert(sp1.GetRefCounter() == sp3.GetRefCounter()); // Assert that sp1 and sp3 share the same reference counter
-    assert(sp1.GetRefCounter()->refCount == 3); // Assert that the reference count is incremented
+    // Assignment an instance to another instance
 
-    // Scope test
-    {
-        SmartPtr<int> sp4 = sp1;
-        assert(*sp4.GetData() == 42); // Assert that sp4 holds the same value as sp1
-        assert(sp1.GetRefCounter() == sp4.GetRefCounter()); // Assert that sp1 and sp4 share the same reference counter
-        assert(sp1.GetRefCounter()->refCount == 4); // Assert that the reference count is incremented
-    }
+    // Perform a scope test inside a block
+
     // After exiting the scope, the reference count should decrease
-    assert(sp1.GetRefCounter()->refCount == 3); // Assert that the reference count is decremented
 
-    // write a message to the console
-    cout << "All tests passed!" << endl;
+    // If all tests passed write a message to the console
+
 }
 
 int main()

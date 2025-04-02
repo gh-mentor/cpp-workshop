@@ -1,6 +1,6 @@
 Fix Bugs in DIY Shared Pointer
 
-This folder contains a simple implementation of a shared pointer in C++. The goal is to fix bugs and improve the implementation.
+This folder contains a simple implementation of a shared pointer in C++. The goal is to fix bugs and improve the implementation. You will also implement a function UseSmartPtr that uses the shared pointer to manage a dynamically allocated object.
 
 The code in 'diy-shared' is a simple implementation of a shared  pointer, similiar to
 the one in C++11. It is a smart pointer that retains shared ownership of an object through a pointer.
