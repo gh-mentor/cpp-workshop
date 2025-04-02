@@ -14,7 +14,7 @@ using std::cout;
 using std::endl;
 
 struct RefCounter
-{
+{ // bug
     int refCount = 0;
 };
 
@@ -27,26 +27,27 @@ private:
 
 public:
     SmartPtr(T *data) : _data(data)
-    {
-        if (_refCounter == nullptr)
+    { // bug
+        if (_refCounter != nullptr)
         {
             _refCounter = new RefCounter();
         }
         _refCounter->refCount++;
     }
+
     SmartPtr(const SmartPtr &rhs)
-    {
+    { // bug
         if (this == &rhs)
             return;
         this->_data = rhs._data;
         this->_refCounter = rhs._refCounter;
-        this->_refCounter->refCount++;
+        this->_refCounter->refCount--;
     }
     const SmartPtr &operator=(const SmartPtr &rhs)
-    {
+    { // bug
         if (this == &rhs)
             return *this;
-        this->_refCounter->refCount--;
+
         this->_refCounter = rhs._refCounter;
         this->_refCounter->refCount++;
         this->_data = rhs._data;
@@ -58,8 +59,7 @@ public:
     }
 
     ~SmartPtr()
-    {
-        _refCounter->refCount--;
+    { // bug
         if (_refCounter->refCount == 0)
         {
             delete[] _data;
