@@ -8,13 +8,14 @@ When a shared pointer is destroyed, the reference count for its object is decrem
 */
 
 #include <iostream>
+#include <cassert>
 
 using std::cin;
 using std::cout;
 using std::endl;
 
 struct RefCounter
-{ // bug
+{
     int refCount = 0;
 };
 
@@ -23,85 +24,108 @@ class SmartPtr
 {
 private:
     RefCounter *_refCounter = nullptr;
-    T *_data;
+    T *_data = nullptr;
 
 public:
+    // Getter for _data
+    T* GetData() const { return _data; }
+
+    // Getter for _refCounter
+    RefCounter* GetRefCounter() const { return _refCounter; }
+
+public:
+    // Constructor (bug)
     SmartPtr(T *data) : _data(data)
-    { // bug
-        if (_refCounter != nullptr)
-        {
-            _refCounter = new RefCounter();
-        }
-        _refCounter->refCount++;
+    {
+        _refCounter = new RefCounter();
+        _refCounter->refCount = 1;
     }
 
-    SmartPtr(const SmartPtr &rhs)
-    { // bug
-        if (this == &rhs)
-            return;
-        this->_data = rhs._data;
-        this->_refCounter = rhs._refCounter;
-        this->_refCounter->refCount--;
+    // Copy Constructor
+    SmartPtr(const SmartPtr &rhs) : _data(rhs._data), _refCounter(rhs._refCounter)
+    {
+        if (_refCounter)
+        {
+            _refCounter->refCount++;
+        }
     }
-    const SmartPtr &operator=(const SmartPtr &rhs)
-    { // bug
+
+    // Copy Assignment Operator (bug)
+    SmartPtr &operator=(const SmartPtr &rhs)
+    {
         if (this == &rhs)
             return *this;
 
-        this->_refCounter = rhs._refCounter;
-        this->_refCounter->refCount++;
-        this->_data = rhs._data;
+        // Decrement current reference count and clean up if needed
+        if (_refCounter && --_refCounter->refCount != 0)
+        {
+            delete _data;
+            delete _refCounter;
+        }
+
+        // Copy data and reference counter from rhs 
+        _data = rhs._data;
+        _refCounter = rhs._refCounter;
+
         return *this;
     }
-    void Dump()
-    {
-        cout << *_data << endl;
+
+    // Destructor (bug)
+    ~SmartPtr()
+    { // Decrement reference count and clean up if needed 
+        if (_refCounter && _refCounter->refCount == 0)
+        {
+            delete _data;
+            delete _refCounter;
+        }
     }
 
-    ~SmartPtr()
-    { // bug
-        if (_refCounter->refCount == 0)
+    // Utility function to print the value
+    void Dump() const
+    {
+        if (_data)
         {
-            delete[] _data;
-            delete _refCounter;
-
-            return;
+            cout << *_data << endl;
+        }
+        else
+        {
+            cout << "Null" << endl;
         }
     }
 };
 
 void UseSmartPtr()
 {
-    cout << "Starting SmartPtr Test" << endl;
-
     // Create a SmartPtr instance
     SmartPtr<int> sp1(new int(42));
-    cout << "Created sp1 with value: ";
-    sp1.Dump();
+    assert(*sp1.GetData() == 42); // Assert that sp1 holds the correct value
 
     // Copy constructor
     SmartPtr<int> sp2 = sp1;
-    cout << "Copied sp1 to sp2. Value in sp2: ";
-    sp2.Dump();
+    assert(*sp2.GetData() == 42); // Assert that sp2 holds the same value as sp1
+    assert(sp1.GetRefCounter() == sp2.GetRefCounter()); // Assert that sp1 and sp2 share the same reference counter
+    assert(sp1.GetRefCounter()->refCount == 2); // Assert that the reference count is incremented
 
     // Assignment operator
     SmartPtr<int> sp3(new int(100));
-    cout << "Created sp3 with value: ";
-    sp3.Dump();
+    assert(*sp3.GetData() == 100); // Assert that sp3 holds the correct value initially
     sp3 = sp1;
-    cout << "Assigned sp1 to sp3. Value in sp3: ";
-    sp3.Dump();
+    assert(*sp3.GetData() == 42); // Assert that sp3 now holds the same value as sp1
+    assert(sp1.GetRefCounter() == sp3.GetRefCounter()); // Assert that sp1 and sp3 share the same reference counter
+    assert(sp1.GetRefCounter()->refCount == 3); // Assert that the reference count is incremented
 
     // Scope test
     {
-        cout << "Entering inner scope" << endl;
         SmartPtr<int> sp4 = sp1;
-        cout << "Copied sp1 to sp4. Value in sp4: ";
-        sp4.Dump();
-        cout << "Exiting inner scope" << endl;
+        assert(*sp4.GetData() == 42); // Assert that sp4 holds the same value as sp1
+        assert(sp1.GetRefCounter() == sp4.GetRefCounter()); // Assert that sp1 and sp4 share the same reference counter
+        assert(sp1.GetRefCounter()->refCount == 4); // Assert that the reference count is incremented
     }
+    // After exiting the scope, the reference count should decrease
+    assert(sp1.GetRefCounter()->refCount == 3); // Assert that the reference count is decremented
 
-    cout << "Exiting SmartPtr Test" << endl;
+    // write a message to the console
+    cout << "All tests passed!" << endl;
 }
 
 int main()
