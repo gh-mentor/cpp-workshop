@@ -1,0 +1,3 @@
+This advanced workshop will test your knowledge of the concepts learned in the previous training sessions using GitHub Copilot as you AI Assistant.  The goal of this workshop is to help you apply what you have learned in a practical way, and to prepare you for real-world scenarios.
+
+You will be designing, implementing, and testing a simulation of a system, and you will need to use the skills you have learned in the previous workshops to complete them. The goal of this workshop is to help you apply what you have learned in a practical way, and to prepare you for real-world scenarios.
