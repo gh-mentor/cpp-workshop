@@ -2,24 +2,16 @@
 
 In this exercise, you will implement and enhance an application that uses the Template Method Pattern. The goal is to understand the pattern, refactor the project to follow best practices, and adhere to SOLID design principles.
 
-## Objectives
-
-1. **Understand the Template Method Pattern**: Learn how the pattern works and its use cases.
-2. **Refactor Project Structure**: Organize the project to follow best practices.
-3. **Adhere to RAII Principles**: Refactor the code to ensure it adheres to RAII principles.
-4. **Unit Testing**: Write unit tests to validate the functionality of the application.
-
-## Instructions
+## Objective
 
 1. **Refactor Project Structure**:
    - Organize the project into a well-structured hierarchy.
    - Separate interfaces into their own modules.
 
-2. **Apply RAII Principles**:
-   - **R**esponsibility: Ensure each class has a single responsibility.
-   - **A**bstract: Use interfaces to define contracts for classes.
-   - **A**ggregate: Group related classes and interfaces together.
-   - **I**nterface: Use interfaces to decouple implementation from contracts.
+2. **Apply SOLID Design Principles**:
+   - Ensure that the code adheres to the Single Responsibility Principle (SRP) by separating concerns.
+   - Implement the Open/Closed Principle (OCP) by allowing new report types to be added without modifying existing code.
+   - Use Dependency Inversion Principle (DIP) to decouple high-level modules from low-level modules.
 
 3. **Write Unit Tests**:
    - Write unit tests for all public classes and functions.
@@ -33,21 +25,30 @@ Here are some sample prompts you can use with Copilot to guide you through the r
 
 ### Refactoring Phase
 
-1. **Scaffolding**:
-   - Help me create a basic structure for a report generation application using the Template Method Pattern. The file main.cpp is contains the monolithic code that needs to be refactored.
+1. **Understanding the Pattern**:
+   - "What are some best practices for implementing the Template Method Pattern in C++?"
 
-2. **RAII**:
-   - "Refactor the code to apply RAAI principles: Responsibility, Abstract, Aggregate, Interface."
+2. **Scaffolding**:
+   - "Help me create a basic folder structure for a report generation application using the Template Method Pattern.  The file main.cpp contains the monolithic code that needs to be refactored."
 
-### Testing Phase
-1. **Unit Tests**:
-   - "Write a test case to verify that the `CompanyReport` class generates a report correctly."
-   - "Generate a test to check that the header and footer methods are called in the correct order."
+3. **Refactoring**:
+   - "Help me refactor the existing application to follow best practices for a Template Method Pattern implementation. The response should adhere to SOLID design principles and be structured in accordance with recommended project structuring."
 
-### Documentation Phase
-1. **Explain the Pattern**:
-   - "Create a section in the README to explain the Template Method Pattern with examples."
-   - "Add a diagram to illustrate the flow of the Template Method Pattern."
-   - "Write a section to clarify the benefits of using the Template Method Pattern in software design."
+4. **Testing Phase**:
+   - "Outline strategies for effective unit testing of the application components."
 
-By following these instructions and using the provided prompts, you can refactor the project to adhere to best practices and ensure it is well-documented and testable. Happy coding!
+5. **Unit Tests**:
+   - "Generate unit tests for the classes, ensuring that all public methods are covered."
+   - "Is there any need to create mock objects for dependencies to isolate the unit tests?"
+   - "Run the tests after implementation to verify functionality and identify any issues."
+
+6. **Documentation**:
+   - "Create documentation that explains the Template Method Pattern and how it is applied in this application."
+   - "What are the key components of the Template Method Pattern that should be highlighted in the documentation?"
+	
+7. **Enhancements**:
+   - "Is there a pattern that could be applied to improve the maintainability and readability of the code?"
+   - "The code as written renders output to the console. How can I modify it to allow for different output formats, such as JSON or XML, while still adhering to the Template Method Pattern?"
+
+
+By following these instructions and using the provided prompts, you can refactor the project to adhere to best practices and ensure it is well-documented and testable.

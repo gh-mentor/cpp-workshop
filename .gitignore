@@ -1,0 +1,64 @@
+# Visual Studio files
+.vs/
+*.vcxproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]uild/
+[Dd]ebug*/
+[Rr]elease*/
+x64/
+x86/
+*.obj
+*.exe
+*.dll
+*.lib
+*.pdb
+*.idb
+*.ipch
+*.aps
+*.ncb
+*.opendb
+*.tlog
+*.log
+*.cache
+*.ilk
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+install_manifest.txt
+
+# Qt Creator files
+*.pro.user
+*.qmake.stash
+*.qmake.cache
+
+# Generated files
+*.moc
+*.rcc
+*.qrc
+
+# Test and coverage
+*.gcda
+*.gcno
+*.gcov
+
+# Other
+*.DS_Store
+*.swp
+*.swo
+*.bak
+
+# DocTest output
+*.doctest.log
+
+# Ignore dependency folders
+deps/
+third_party/
+external/
