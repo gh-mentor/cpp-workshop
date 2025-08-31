@@ -11,8 +11,6 @@ Logger::Logger() {
 	_fs.open(fileName, std::ios_base::app);
 }
 
-Logger::Logger(const Logger&) {}
-
 Logger& Logger::GetInstance() {
 	static Logger _logger;
 	return _logger;

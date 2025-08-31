@@ -1,7 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 #include "logger.h"
-#include <thread>
 
 
 // For all test cases, use the CHECK macro to verify conditions.
@@ -16,3 +15,6 @@ TEST_CASE("Log File Creation") {
     CHECK(logFile.good());
     logFile.close();
 }
+
+
+// add other tests 
