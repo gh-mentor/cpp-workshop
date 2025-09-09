@@ -7,6 +7,7 @@ The function execute takes a function t and an integer load as arguments and exe
 #include <thread>
 #include <future>
 #include <iostream>
+#include <functional>
 
 /*
 This function executes a given task on a separate thread.
@@ -31,3 +32,4 @@ void execute(std::function<void(int)> t, int load) {
         throw;
     }
 }
+
