@@ -41,5 +41,17 @@ Builds a multi-stage concurrent pipeline (generator, processor, aggregator) usin
 (Paths: ex10-pipeline/README.md, ex10-pipeline/doc.md)
 
 ## simulation
-Creates an extensible manufacturing process simulation producing operational, quality, and what‑if analytics over daily/weekly runs  
-(Paths: simulation/README.md, simulation/doc.txt)
+Collection of scenario-based domain simulations (manufacturing, healthcare, banking) focused on extensible modeling, metrics generation, and what‑if analysis.  
+(Base Folder: simulation/)
+
+### simulation/manufacturing
+Models a microchip production workflow (stages, yields, defects) enabling throughput, quality, and capacity scenario analysis.  
+(Paths: simulation/manufacturing/microchips.md, simulation/manufacturing/README-chips-scenario.md)
+
+### simulation/healthcare
+Simulates patient flow and resource utilization (admissions, triage, treatment queues) to analyze bottlenecks and service-level outcomes.  
+(Paths: simulation/healthcare/healthcare-scenario.md, simulation/healthcare/README-healthcare-scenario.md)
+
+### simulation/banking
+Represents banking operations (accounts, transactions, fraud checks, latency) to evaluate operational risk, performance, and scaling strategies.  
+(Paths: simulation/banking/bank-scenario.md, simulation/banking/README-bank-scenario.md)
