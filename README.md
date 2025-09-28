@@ -40,6 +40,9 @@ Implements all methods of a factory assembly line simulation class so provided t
 Builds a multi-stage concurrent pipeline (generator, processor, aggregator) using threads, futures, and thread-safe queues with dedicated tests  
 (Paths: ex10-pipeline/README.md, ex10-pipeline/doc.md)
 
+## ex11-upgrade
+Educational robotics codebase intentionally written with shortcomings to showcase modernization: Upgrade path from C++20 -> C++23; applying MISRA C++ / security hardening later; expanding minimal tests into a robust suite (property, fuzz, golden, coverage).
+
 ## simulation
 Collection of scenario-based domain simulations (manufacturing, healthcare, banking) focused on extensible modeling, metrics generation, and what‑if analysis.  
 (Base Folder: simulation/)
