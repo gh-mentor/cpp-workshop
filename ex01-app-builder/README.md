@@ -25,11 +25,11 @@ Part 1:
 Part 2:
 
 ```	
-1. Refactor the code to separate the function definitions and the main logic for better readability and maintainability. The main program wil be stored in 'main.cpp' and the function definitions in 'lambda.h' and 'lambda.cpp'.
+1. Refactor the code to separate the function definitions and the main logic for better readability and maintainability. The main program will be stored in 'main.cpp' and the function definitions in 'lambda.h' and 'lambda.cpp'.
 
 2. Add comments to explain the purpose of each function and major code sections.
 
-13. Compile and run the final version of the program to ensure it works as expected.
+3. Compile and run the final version of the program to ensure it works as expected.
 
 Optional: Before compiling generate a Makefile to automate the build process.
 ```
