@@ -1,7 +1,7 @@
 # GitHub Copilot Workshop for C++ Developers
 
 ## ex01-app-builder
-Builds a console app that gathers up to 10 numbers, applies square and cube lambdas, and prints formatted results, then refactors into separate translation units  
+Builds a console application that gathers up to 10 numbers, applies square and cube lambdas, and prints formatted results, then refactors into separate translation units  
 (Path: ex01-app-builder/README.md)
 
 ## ex02-convert
@@ -58,3 +58,4 @@ Simulates patient flow and resource utilization (admissions, triage, treatment q
 ### simulation/banking
 Represents banking operations (accounts, transactions, fraud checks, latency) to evaluate operational risk, performance, and scaling strategies.  
 (Paths: simulation/banking/bank-scenario.md, simulation/banking/README-bank-scenario.md)
+
