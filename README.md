@@ -1,7 +1,7 @@
 # GitHub Copilot Workshop using C++
 
 ## ex01-app-builder
-Builds a console application that gathers up to 10 numbers from user input, applies square and cube lambdas, and prints formatted results, then refactors into separate translation units  
+Create a console application that gathers up to 10 numbers from user input, applies square and cube lambdas, and prints formatted results, then refactors into separate translation units  
 (Path: ex01-app-builder/README.md)
 
 ## ex02-convert
