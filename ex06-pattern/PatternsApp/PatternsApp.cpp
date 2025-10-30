@@ -21,7 +21,7 @@ private:
     }
     void RenderRows(std::vector<std::vector<std::string>> rows)
     {
-        for (auto &row : rows)
+        for (auto& row : rows)
         {
             for (std::vector<std::string>::iterator it = row.begin(); it < row.end(); ++it)
             {
@@ -98,7 +98,7 @@ public:
 
 int main()
 {
-    IReportTemplate *tm = new CompanyReport;
+    IReportTemplate* tm = new CompanyReport;
     tm->templateMethod();
 
     delete tm;
