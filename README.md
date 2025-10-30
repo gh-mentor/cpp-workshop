@@ -1,4 +1,4 @@
-# GitHub Copilot Workshop for C++ Developers
+# GitHub Copilot Workshop using C++
 
 ## ex01-app-builder
 Builds a console application that gathers up to 10 numbers, applies square and cube lambdas, and prints formatted results, then refactors into separate translation units  
